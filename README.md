@@ -8,10 +8,12 @@ Naive Algorithms The easiest way to figure out the x- and y-displacements is to 
 B channel and G channel to R channel. We have to algorithms for comparison,
 
 1. Sum of squared differences (SSD) :
+
  - Calculate the sum of the squared difference between the reference channel and the shifted channel.
-- Find the corresponding x- and y-displacements that has the minimum SSD. The smaller the SSD, the more similar color intensities of the two channels are.
+ - Find the corresponding x- and y-displacements that has the minimum SSD. The smaller the SSD, the more similar color intensities of the two channels are.
 
 2. Normalized Cross-Correlation (NCC)
+
 - Calculate the dot product of the normalized reference channel and the normalized shifted channel.
 - Find the corresponding x- and y-displacements that has the maximum NCC. The bigger the NCC, the more similar color intensities of the two channels are.
 
@@ -35,6 +37,7 @@ tried following algorithm.
 6. Crop the image using calculated coordinates.
 
 **Results**
+
 ![Image](./output/prokudin-gorskii/00153-aligned.jpg)
 ![Image](./output/prokudin-gorskii/00149-aligned.jpg)
 ![Image](./output/prokudin-gorskii/00125-aligned.jpg)
