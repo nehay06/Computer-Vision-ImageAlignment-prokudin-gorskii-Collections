@@ -25,13 +25,13 @@ number of rows to shift the image and y is the number of columns to shift the im
 
 Cropping Output Image To crop the unwanted corners of the output image and produce a clear result. I
 tried following algorithm.
-- 1. Extract thee top and left-most corner of the image to improve the performance of the program.
+1. Extract thee top and left-most corner of the image to improve the performance of the program.
 2. Convert Each layer into an edge image and calulate the mean value of each axis.
--3. Mask the mean values against a threshold, which is 3 * the mean value of the mean value vector.
--4. Find the last non-zero value of this mask, which gives us the x or y coordinate of the end of the border.
--5. Repeat above for each layer, the highest value of the x or y coordinate gives the border that goes
+3. Mask the mean values against a threshold, which is 3 * the mean value of the mean value vector.
+4. Find the last non-zero value of this mask, which gives us the x or y coordinate of the end of the border.
+5. Repeat above for each layer, the highest value of the x or y coordinate gives the border that goes
 furthest into image.
--6. Crop the image using calculated coordinates.
+6. Crop the image using calculated coordinates.
 
 Evaluating alignment ..
 1 balloon.jpeg
