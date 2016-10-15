@@ -6,12 +6,12 @@ the blue and red channels are aligned to the green channel.
 Naive Algorithms The easiest way to figure out the x- and y-displacements is to compare the intensity of
 B channel and G channel to R channel. We have to algorithms for comparison,
 1. Sum of squared differences (SSD) :
- Calculate the sum of the squared difference between the reference channel and the shifted channel.
- Find the corresponding x- and y-displacements that has the minimum SSD. The smaller the SSD,
+-Calculate the sum of the squared difference between the reference channel and the shifted channel.
+-Find the corresponding x- and y-displacements that has the minimum SSD. The smaller the SSD,
 the more similar color intensities of the two channels are.
 2. Normalized Cross-Correlation (NCC)
- Calculate the dot product of the normalized reference channel and the normalized shifted channel.
- Find the corresponding x- and y-displacements that has the maximum NCC. The bigger the
+- Calculate the dot product of the normalized reference channel and the normalized shifted channel.
+- Find the corresponding x- and y-displacements that has the maximum NCC. The bigger the
 NCC, the more similar color intensities of the two channels are.
 
 In order to align the image, only the center-most 60 % of the image is used. In other words, 20 % around
@@ -25,14 +25,13 @@ number of rows to shift the image and y is the number of columns to shift the im
 
 Cropping Output Image To crop the unwanted corners of the output image and produce a clear result. I
 tried following algorithm.
-1. Extract thee top and left-most corner of the image to improve the performance of the program.
+- 1. Extract thee top and left-most corner of the image to improve the performance of the program.
 2. Convert Each layer into an edge image and calulate the mean value of each axis.
-3. Mask the mean values against a threshold, which is 3 * the mean value of the mean value vector.
-4. Find the last non-zero value of this mask, which gives us the x or y coordinate of the end of the border.
-2
-5. Repeat above for each layer, the highest value of the x or y coordinate gives the border that goes
+-3. Mask the mean values against a threshold, which is 3 * the mean value of the mean value vector.
+-4. Find the last non-zero value of this mask, which gives us the x or y coordinate of the end of the border.
+-5. Repeat above for each layer, the highest value of the x or y coordinate gives the border that goes
 furthest into image.
-6. Crop the image using calculated coordinates.
+-6. Crop the image using calculated coordinates.
 
 Evaluating alignment ..
 1 balloon.jpeg
